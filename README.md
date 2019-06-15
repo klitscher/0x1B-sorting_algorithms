@@ -68,4 +68,4 @@ What you should learn from this project:
 ---
 
 ## Author
-* **Kyle Litscher** - [klitscher](https://github.com/klitscher)
+* **Kyle Litscher** - [klitscher](https://github.com/klitscher) & **Anthony Le** - [HausCloud](https://github.com/HausCloud)
