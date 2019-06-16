@@ -11,17 +11,17 @@ What you should learn from this project:
 ---
 
 ### [0. Bubble sort](./0-bubble_sort.c)
-* 
+*
 
 
 
 ### [1. Insertion sort](./1-insertion_sort_list.c)
-* 
+*
 
 
 
 ### [2. Selection sort](./2-selection_sort.c)
-* 
+*
 
 
 
@@ -62,7 +62,7 @@ What you should learn from this project:
 
 
 ### [12. Dealer](./1000-sort_deck.c)
-* 
+*
 
 
 ---
