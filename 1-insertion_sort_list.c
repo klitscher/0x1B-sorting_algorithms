@@ -13,47 +13,38 @@ void insertion_sort_list(listint_t **list)
 		return;
 	if ((*list)->next == NULL)
 		return;
-	current = *list;
 	back = *list;
-	forward = *list;
-	while(forward != NULL)
+	forward = (*list)->next->next;
+	current = (*list)->next;
+	while (1)
 	{
-		forward = current->next->next;
-		current = current->next;
-		while (back != NULL)
+		while (current->n < back->n)
 		{
-			if (current->n < back->n)
-			{
-				if(back->prev == NULL)
-				{
-					current->prev = NULL;
-					current->next = back;
-					back->prev = current;
-					back->next = forward;
-					forward->prev = back;
-				}
-				else
-				{
-					current->prev = NULL;
-					current->next = back;
-					back->prev->next = current;
-					back->prev = current;
-					back->next = forward;
-					if(forward != NULL)
-						forward->prev = back;
-				}
-				while((*list)->prev != NULL)
-					*list = (*list)->prev;
-				print_list(*list);
-			}
-			current = back;
-			back = back->prev;
+			if (current->next != NULL)
+				current->next->prev = back;
+			if (back->prev != NULL)
+				back->prev->next = current;
+			current->prev = back->prev;
+			back->next = current->next, current->next = back;
+			back->prev = current, back = current->prev;
+			while ((*list)->prev != NULL)
+				*list = (*list)->prev;
+			print_list(*list);
+			if (back == NULL)
+				break;
 		}
-		current = forward;
-		if (current != NULL)
+		if (forward == NULL)
+			break;
+		if (forward->next == NULL)
 		{
-			back = current->prev;
-			forward = current->next;
+			current = forward;
+			back = forward->prev, forward = forward->next;
+		}
+		else
+		{
+			current = forward->prev, back = current->prev;
+			forward = forward->next, current = current->next;
+			back = back->next;
 		}
 	}
 }
